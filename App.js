@@ -1,30 +1,29 @@
 import React from "react";
-import { View, Text, Image, ScrollView, TextInpurt } from 'react-native'
+import { StyleSheet, Text, View } from "react-native";
 
-const App = () => {
+const LotsOfStyles = () => {
   return (
-    <ScrollView>
-      <Text>Some Text</Text>
-      <View>
-        <Text>Some more Text</Text>
-        <Image
-          source={{
-            uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
-          }}
-          style={{ width: 200, height: 200 }}
-        />
-      </View>
-      <TextInput
-        style={{
-          height: 40,
-          borderColor: 'gray',
-          borderWidth: 1,
-        }}
-        defaultValue="You can type in me"
-      />
+    <View style={styles.container}>
+      <Text style={styles.red}>Just red</Text>
+      <Text style={styles.bigBlue}>just bigBlue</Text>
+      <Text style={[ styles.bigBlue, styles.red ]}>bigblue, then red</Text>
+      <Text style={[ styles.red, styles.bigBlue ]}>red , then bigBlue</Text>
+    </View>
+  );
+};
 
-    </ScrollView>
-  )
-}
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 50,
+  },
+  bigBlue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
+  red: {
+    color: 'red'
+  }
+})
 
-export default App
+export default LotsOfStyles;
